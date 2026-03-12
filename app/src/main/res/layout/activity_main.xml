@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_dark">
+
+    <!-- Header Bar -->
+    <LinearLayout
+        android:id="@+id/headerBar"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:background="@color/surface_dark"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="16dp"
+        android:elevation="4dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <!-- Ada Logo / Status Dot -->
+        <View
+            android:id="@+id/statusDot"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:background="@drawable/circle_green"
+            android:layout_marginEnd="10dp"/>
+
+        <!-- Title -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:text="ADA"
+                android:textColor="@color/ada_cyan"
+                android:textSize="18sp"
+                android:fontFamily="@font/jetbrains_mono"
+                android:letterSpacing="0.15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/tvStatus"
+                android:text="Ready"
+                android:textColor="@color/text_secondary"
+                android:textSize="11sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <!-- Agent indicator -->
+        <TextView
+            android:id="@+id/tvAgent"
+            android:text="[conversation]"
+            android:textColor="@color/ada_cyan_dim"
+            android:textSize="10sp"
+            android:fontFamily="@font/jetbrains_mono"
+            android:layout_marginEnd="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <!-- New Chat -->
+        <ImageButton
+            android:id="@+id/btnNewChat"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@drawable/ic_new_chat"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:tint="@color/text_secondary"
+            android:layout_marginEnd="4dp"
+            android:contentDescription="New conversation"/>
+
+        <!-- Memory -->
+        <ImageButton
+            android:id="@+id/btnMemory"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@drawable/ic_memory"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:tint="@color/text_secondary"
+            android:layout_marginEnd="4dp"
+            android:contentDescription="View memory"/>
+
+        <!-- Settings -->
+        <ImageButton
+            android:id="@+id/btnSettings"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@drawable/ic_settings"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:tint="@color/text_secondary"
+            android:contentDescription="Settings"/>
+    </LinearLayout>
+
+    <!-- Thinking Indicator -->
+    <LinearLayout
+        android:id="@+id/thinkingIndicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="8dp"
+        app:layout_constraintTop_toBottomOf="@id/headerBar"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            app:lottie_rawRes="@raw/thinking_dots"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"/>
+
+        <TextView
+            android:text=" ADA is thinking..."
+            android:textColor="@color/ada_cyan_dim"
+            android:textSize="12sp"
+            android:fontFamily="@font/jetbrains_mono"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <!-- Message List -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerMessages"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:paddingVertical="8dp"
+        tools:listitem="@layout/item_message_ada"
+        app:layout_constraintTop_toBottomOf="@id/headerBar"
+        app:layout_constraintBottom_toTopOf="@id/voiceWaveform"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Voice Waveform (shown during listening) -->
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/voiceWaveform"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:visibility="gone"
+        app:lottie_rawRes="@raw/voice_waveform"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:layout_constraintBottom_toTopOf="@id/inputBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Input Bar -->
+    <LinearLayout
+        android:id="@+id/inputBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/surface_dark"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="12dp"
+        android:paddingVertical="10dp"
+        android:elevation="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <!-- TTS toggle -->
+        <ImageButton
+            android:id="@+id/btnTts"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_speaker"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:tint="@color/ada_cyan"
+            android:contentDescription="Toggle voice output"/>
+
+        <!-- Stop speaking -->
+        <ImageButton
+            android:id="@+id/btnStop"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_stop"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:tint="@color/text_secondary"
+            android:contentDescription="Stop speaking"/>
+
+        <!-- Text input -->
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etMessage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/hint_message"
+            android:hintTextColor="@color/text_secondary"
+            android:textColor="@color/text_primary"
+            android:textSize="14sp"
+            android:background="@drawable/bg_input_field"
+            android:paddingHorizontal="14dp"
+            android:paddingVertical="10dp"
+            android:maxLines="4"
+            android:layout_marginHorizontal="8dp"
+            android:inputType="textMultiLine|textCapSentences"/>
+
+        <!-- Voice button -->
+        <ImageButton
+            android:id="@+id/btnVoice"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:src="@drawable/ic_mic"
+            android:background="@drawable/bg_voice_btn"
+            android:tint="@color/background_dark"
+            android:layout_marginEnd="8dp"
+            android:contentDescription="Voice input"/>
+
+        <!-- Send button -->
+        <ImageButton
+            android:id="@+id/btnSend"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:src="@drawable/ic_send"
+            android:background="@drawable/bg_send_btn"
+            android:tint="@color/background_dark"
+            android:contentDescription="Send message"/>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

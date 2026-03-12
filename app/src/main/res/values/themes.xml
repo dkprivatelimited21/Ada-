@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.ADA" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/ada_cyan</item>
+        <item name="colorPrimaryVariant">@color/ada_cyan_dim</item>
+        <item name="colorOnPrimary">@color/background_dark</item>
+        <item name="colorSecondary">@color/ada_cyan</item>
+        <item name="colorSecondaryVariant">@color/ada_cyan_dim</item>
+        <item name="colorOnSecondary">@color/background_dark</item>
+        <item name="colorSurface">@color/surface_dark</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        <item name="android:colorBackground">@color/background_dark</item>
+        <item name="colorOnBackground">@color/text_primary</item>
+        <item name="android:windowBackground">@color/background_dark</item>
+        <item name="android:statusBarColor">@color/surface_dark</item>
+        <item name="android:navigationBarColor">@color/surface_dark</item>
+        <item name="android:textColorPrimary">@color/text_primary</item>
+        <item name="android:textColorSecondary">@color/text_secondary</item>
+        <item name="android:fontFamily">@font/inter</item>
+    </style>
+
+    <style name="Theme.ADA.Splash" parent="Theme.ADA">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowBackground">@color/background_dark</item>
+    </style>
+
+    <style name="Theme.ADA.ActionBar" parent="Widget.AppCompat.ActionBar">
+        <item name="background">@color/surface_dark</item>
+        <item name="titleTextStyle">@style/Theme.ADA.ActionBar.Title</item>
+    </style>
+
+    <style name="Theme.ADA.ActionBar.Title" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textColor">@color/ada_cyan</item>
+    </style>
+
+</resources>

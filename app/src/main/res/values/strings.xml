@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ADA</string>
+    <string name="hint_message">Message ADA…</string>
+    <string name="ada_greeting">Good to see you. I\'m ADA, your Adaptive Digital Assistant.</string>
+    <string name="listening">Listening…</string>
+    <string name="thinking">ADA is thinking…</string>
+    <string name="speaking">ADA is speaking…</string>
+    <string name="new_conversation">New Conversation</string>
+    <string name="memory_viewer">ADA Memory</string>
+    <string name="settings">Settings</string>
+
+    <!-- Settings labels -->
+    <string name="setting_ollama_url">Ollama Server URL</string>
+    <string name="setting_ollama_model">Model Name</string>
+    <string name="setting_openai_key">OpenAI API Key</string>
+    <string name="setting_voice_enabled">Enable Voice Commands</string>
+    <string name="setting_tts_enabled">Enable Voice Responses</string>
+    <string name="setting_wake_word">Wake Word</string>
+    <string name="setting_user_name">Your Name</string>
+
+    <!-- Default values -->
+    <string name="default_ollama_url">http://192.168.1.100:11434/</string>
+    <string name="default_ollama_model">llama3.2:3b</string>
+    <string name="default_wake_word">Ada</string>
+
+    <!-- Examples -->
+    <string name="example_1">Ada, open YouTube</string>
+    <string name="example_2">Remind me in 20 minutes to take a break</string>
+    <string name="example_3">What is the Pythagorean theorem?</string>
+    <string name="example_4">Write a Python function to sort a list</string>
+    <string name="example_5">Create a note: buy groceries tomorrow</string>
+    <string name="example_6">What do you know about me?</string>
+</resources>
