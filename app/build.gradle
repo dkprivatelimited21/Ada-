@@ -17,7 +17,7 @@ android {
         versionCode 1
         versionName "1.0.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        
+
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments += ["room.schemaLocation": "$projectDir/schemas"]
@@ -49,6 +49,9 @@ android {
         viewBinding true
         dataBinding true
     }
+
+    // Fonts
+    // Use font resources instead of .ttf directly if needed
 }
 
 dependencies {
@@ -117,8 +120,10 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 }
 
+// Fix duplicate classes by forcing one version
 configurations.all {
     resolutionStrategy {
         force "org.jetbrains:annotations:23.0.0"
+        exclude group: 'org.jetbrains', module: 'annotations-java5'
     }
 }
